@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>Türkçe Konuşma Sınavı</title>
 
@@ -104,6 +110,11 @@ button {
 
 button:hover {
     opacity: 0.9;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .secondary {
@@ -223,8 +234,6 @@ audio {
     line-height: 1.5;
 }
 
-/* 3. BÖLÜM */
-
 .topicBox {
     background: #250d0f;
     border: 1px solid #713238;
@@ -260,12 +269,12 @@ audio {
 }
 
 .argumentTable th:first-child {
-    border-right: 1px solid #713238;
+border-right: 1px solid #713238;
 }
 
 .argumentTable td {
     width: 50%;
-padding: 18px;
+    padding: 18px;
     vertical-align: top;
     font-size: 18px;
     line-height: 1.6;
@@ -308,49 +317,40 @@ padding: 18px;
     .bookCard {
         width: 100%;
     }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="card" id="studentCard">
+<!-- HEADER -->
 
-    <h2>Öğrenci Bilgileri</h2>
-
-    <p>Lütfen adınızı ve soyadınızı yazınız.</p>
-
-    <input
-        type="text"
-        id="studentName"
-        placeholder="Ad Soyad"
-    >
-
-</div>
 <div class="header">
 
-    <div class="logo">
-        TR
-    </div>
+<div class="logo">
+TR
+</div>
 
-    <div>
+<div>
 
-        <h1>
-            Türkçe Konuşma Sınavı
-        </h1>
+<h1>
+Türkçe Konuşma Sınavı
+</h1>
 
-        <div class="brand">
-            MUSLİMAZİYO
-        </div>
+<div class="brand">
+MUSLİMAZİYO
+</div>
 
-        <div class="subtitle">
-            Multi-Level · Konuşma Pratiği
-        </div>
+<div class="subtitle">
+Multi-Level · Konuşma Pratiği
+</div>
 
-    </div>
+</div>
 
 </div>
 
@@ -358,6 +358,49 @@ padding: 18px;
 <!-- BAŞLANGIÇ -->
 
 <div id="startPage">
+
+<div class="card">
+
+<h2>
+Öğrenci Bilgileri
+</h2>
+
+<p>
+Lütfen adınızı ve soyadınızı yazınız.
+</p>
+
+<input
+type="text"
+id="name"
+placeholder="Adınızı ve soyadınızı yazın"
+>
+
+<div class="mic">
+🎙
+</div>
+
+<button
+onclick="testMicrophone()"
+class="secondary"
+>
+🎤 Mikrofonu Test Et
+</button>
+
+<div
+id="micStatus"
+class="status"
+>
+Mikrofon bekleniyor...
+</div>
+
+<button
+onclick="startExam()"
+>
+▶️ Sınava Başla
+</button>
+
+</div>
+
 
 <div class="card">
 
@@ -435,45 +478,6 @@ Lehine / Aleyhine · 1 dakika hazırlık · 2 dakika konuşma
 
 </div>
 
-
-<div class="card">
-
-<h2>
-Ad Soyad
-</h2>
-
-<input
-type="text"
-id="name"
-placeholder="Adınızı ve soyadınızı yazın"
->
-
-<div class="mic">
-🎙️
-</div>
-
-<button
-onclick="testMicrophone()"
-class="secondary"
->
-🎤 Mikrofonu Test Et
-</button>
-
-<div
-id="micStatus"
-class="status"
->
-Mikrofon bekleniyor...
-</div>
-
-<button
-onclick="startExam()"
->
-▶️ Sınava Başla
-</button>
-
-</div>
-
 </div>
 
 
@@ -502,7 +506,7 @@ Soru 1 / 3
 </div>
 
 
-<!-- 1.2 RASMLAR -->
+<!-- 1.2 -->
 
 <div
 id="imageBox"
@@ -523,7 +527,7 @@ E-Kitap
 </div>
 
 <div class="vs">
-↔
+↔️
 </div>
 
 <div class="bookCard">
@@ -541,7 +545,7 @@ Kâğıt Kitap
 </div>
 
 
-<!-- 2. BÖLÜM RASM -->
+<!-- 2. BÖLÜM -->
 
 <div
 id="peaceImage"
@@ -555,15 +559,13 @@ font-size:80px;
 text-align:center;
 margin-bottom:10px;
 ">
-🌿 🏞️ 🌳
+🌿 🏞 🌳
 </div>
 
 </div>
 
 </div>
 
-
-<!-- 2. BÖLÜM SAVOLLARI -->
 
 <div
 id="section2Questions"
@@ -596,7 +598,9 @@ style="display:none;"
 <div class="topicBox">
 
 <div class="topicTitle">
+
 Ülkenizde sigara ve diğer tütün ürünlerinin yasaklanması, toplumsal ve bireysel açıdan ne gibi etkiler yaratır?
+
 </div>
 
 </div>
@@ -665,6 +669,8 @@ Bireysel özgürlüklerin kısıtlanması tartışmalara yol açabilir.
 </div>
 
 
+<!-- TIMER -->
+
 <div
 class="timer"
 id="timer"
@@ -672,6 +678,8 @@ id="timer"
 5
 </div>
 
+
+<!-- QUESTION -->
 
 <div
 class="question"
@@ -681,12 +689,16 @@ Soru burada görünecek.
 </div>
 
 
+<!-- RECORDING STATUS -->
+
 <div
 id="recordingStatus"
 class="recording"
 >
 </div>
 
+
+<!-- AUDIO -->
 
 <audio
 id="audioPlayer"
@@ -695,6 +707,8 @@ class="hidden"
 ></audio>
 
 
+<!-- NEXT -->
+
 <button
 id="nextButton"
 onclick="nextQuestion()"
@@ -702,6 +716,10 @@ class="hidden"
 >
 Sonraki Bölüm →
 </button>
+
+
+<!-- SEND -->
+
 <button
 id="sendButton"
 onclick="sendAllRecordings()"
@@ -714,12 +732,12 @@ Gönder 📤
 
 </div>
 
-</div>
-
 
 <script>
 
-/* 1.1 */
+/* =========================
+   SORULAR
+========================= */
 
 const section11Questions = [
 
@@ -732,8 +750,6 @@ const section11Questions = [
 ];
 
 
-/* 1.2 */
-
 const section12Questions = [
 
 "Bu iki resimde ne görüyorsunuz? Karşılaştırabilir misiniz?",
@@ -745,15 +761,19 @@ const section12Questions = [
 ];
 
 
+/* =========================
+   DEĞİŞKENLER
+========================= */
+
 let currentSection = "1.1";
 
 let currentQuestion = 0;
 
 let time = 5;
 
-let timerInterval;
+let timerInterval = null;
 
-let mediaRecorder;
+let mediaRecorder = null;
 
 let audioChunks = [];
 
@@ -761,7 +781,10 @@ let microphoneStream = null;
 
 let recordedAudios = [];
 
-/* MİKROFON */
+
+/* =========================
+   MİKROFON TESTİ
+========================= */
 
 async function testMicrophone() {
 
@@ -772,7 +795,7 @@ try {
 
 microphoneStream =
 await navigator.mediaDevices.getUserMedia({
-audio:true
+audio: true
 });
 
 status.innerText =
@@ -782,28 +805,39 @@ microphoneStream
 .getTracks()
 .forEach(track => track.stop());
 
+microphoneStream = null;
+
 }
 
 catch(error) {
 
+console.error(error);
+
 status.innerText =
-"❌ Mikrofon için izin verilmedi.";
+"❌ Mikrofon izni verilmedi.";
 
 }
 
 }
 
 
-/* SINAV */
+/* =========================
+   SINAVI BAŞLAT
+========================= */
 
 function startExam() {
 
 const name =
-document.getElementById("name").value.trim();
+document
+.getElementById("name")
+.value
+.trim();
 
 if(name === "") {
 
-alert("Lütfen adınızı ve soyadınızı yazın.");
+alert(
+"Lütfen adınızı ve soyadınızı yazınız."
+);
 
 return;
 
@@ -821,12 +855,16 @@ currentSection = "1.1";
 
 currentQuestion = 0;
 
+recordedAudios = [];
+
 showQuestion();
 
 }
 
 
-/* SORU */
+/* =========================
+   SORUYU GÖSTER
+========================= */
 
 function showQuestion() {
 
@@ -850,6 +888,9 @@ document.getElementById("audioPlayer");
 const nextButton =
 document.getElementById("nextButton");
 
+const sendButton =
+document.getElementById("sendButton");
+
 const imageBox =
 document.getElementById("imageBox");
 
@@ -865,35 +906,41 @@ document.getElementById("section3Content");
 
 audioPlayer.classList.add("hidden");
 
-audioPlayer.src="";
+audioPlayer.src = "";
 
 nextButton.classList.add("hidden");
 
-recordingStatus.innerText="";
+sendButton.classList.add("hidden");
 
-imageBox.style.display="none";
+recordingStatus.innerText = "";
 
-peaceImage.style.display="none";
+imageBox.style.display = "none";
 
-section2Questions.style.display="none";
+peaceImage.style.display = "none";
 
-section3Content.style.display="none";
+section2Questions.style.display = "none";
+
+section3Content.style.display = "none";
 
 
 /* 1.1 */
 
 if(currentSection === "1.1") {
 
-document.getElementById("sectionTitle")
-.innerText="1.1 Bölümü";
+document
+.getElementById("sectionTitle")
+.innerText =
+"1.1 Bölümü";
 
 progress.innerText =
-"Soru " + (currentQuestion+1) + " / 3";
+"Soru " +
+(currentQuestion + 1) +
+" / 3";
 
 question.innerText =
 section11Questions[currentQuestion];
 
-time=5;
+time = 5;
 
 }
 
@@ -902,26 +949,30 @@ time=5;
 
 else if(currentSection === "1.2") {
 
-document.getElementById("sectionTitle")
-.innerText="1.2 Bölümü";
+document
+.getElementById("sectionTitle")
+.innerText =
+"1.2 Bölümü";
 
 progress.innerText =
-"Soru " + (currentQuestion+1) + " / 3";
+"Soru " +
+(currentQuestion + 1) +
+" / 3";
 
 question.innerText =
 section12Questions[currentQuestion];
 
-imageBox.style.display="flex";
+imageBox.style.display = "flex";
 
-if(currentQuestion===0) {
+if(currentQuestion === 0) {
 
-time=10;
+time = 10;
 
 }
 
 else {
 
-time=5;
+time = 5;
 
 }
 
@@ -932,8 +983,11 @@ time=5;
 
 else if(currentSection === "2") {
 
-document.getElementById("sectionTitle")
-.innerText="2. Bölüm · B2";
+document
+.getElementById("sectionTitle")
+.innerText =
+"2.
+Bölüm · B2";
 
 progress.innerText =
 "3 soru · 1 dakika hazırlık";
@@ -941,11 +995,11 @@ progress.innerText =
 question.innerText =
 "Soruları okuyun ve cevaplarınızı planlayın.";
 
-peaceImage.style.display="block";
+peaceImage.style.display = "block";
 
-section2Questions.style.display="block";
+section2Questions.style.display = "block";
 
-time=60;
+time = 60;
 
 }
 
@@ -954,8 +1008,10 @@ time=60;
 
 else if(currentSection === "3") {
 
-document.getElementById("sectionTitle")
-.innerText="3. Bölüm · C1";
+document
+.getElementById("sectionTitle")
+.innerText =
+"3. Bölüm · C1";
 
 progress.innerText =
 "1 dakika hazırlık · 2 dakika konuşma";
@@ -963,24 +1019,24 @@ progress.innerText =
 question.innerText =
 "Lehine ve aleyhine görüşleri değerlendirerek kendi fikrinizi geliştiriniz.";
 
-section3Content.style.display="block";
+section3Content.style.display = "block";
 
-time=60;
+time = 60;
 
 }
 
 
-timer.innerText=time;
+timer.innerText = time;
 
 
 timerInterval =
-setInterval(function(){
+setInterval(function() {
 
 time--;
 
-timer.innerText=time;
+timer.innerText = time;
 
-if(time<=0){
+if(time <= 0) {
 
 clearInterval(timerInterval);
 
@@ -988,36 +1044,41 @@ startRecording();
 
 }
 
-},1000);
+}, 1000);
 
 }
 
 
-/* KAYIT */
+/* =========================
+   KAYIT BAŞLAT
+========================= */
+
 async function startRecording() {
 
 const timer =
 document.getElementById("timer");
-    
+
 const recordingStatus =
 document.getElementById("recordingStatus");
+
 
 try {
 
 microphoneStream =
 await navigator.mediaDevices.getUserMedia({
-audio:true
+audio: true
 });
 
 mediaRecorder =
 new MediaRecorder(microphoneStream);
 
-audioChunks=[];
+audioChunks = [];
+
 
 mediaRecorder.ondataavailable =
-function(event){
+function(event) {
 
-if(event.data.size>0){
+if(event.data.size > 0) {
 
 audioChunks.push(event.data);
 
@@ -1027,14 +1088,16 @@ audioChunks.push(event.data);
 
 
 mediaRecorder.onstop =
-function(){
+function() {
 
 const audioBlob =
 new Blob(
 audioChunks,
-{type:"audio/webm"}
+{ type: "audio/webm" }
 );
-    recordedAudios.push(audioBlob);
+
+recordedAudios.push(audioBlob);
+
 
 const audioURL =
 URL.createObjectURL(audioBlob);
@@ -1042,7 +1105,7 @@ URL.createObjectURL(audioBlob);
 const audioPlayer =
 document.getElementById("audioPlayer");
 
-audioPlayer.src=audioURL;
+audioPlayer.src = audioURL;
 
 audioPlayer.classList.remove("hidden");
 
@@ -1058,42 +1121,44 @@ recordingStatus.innerText =
 "🔴 Kayıt yapılıyor...";
 
 
-if(currentSection==="2" ||
-currentSection==="3") {
+if(
+currentSection === "2" ||
+currentSection === "3"
+) {
 
-time=120;
+time = 120;
 
 }
 
 else if(
-currentSection==="1.2" &&
-currentQuestion===0
+currentSection === "1.2" &&
+currentQuestion === 0
 ) {
 
-time=45;
+time = 45;
 
 }
 
 else {
 
-time=30;
+time = 30;
 
 }
 
 
-timer.innerText=time;
+timer.innerText = time;
 
 clearInterval(timerInterval);
 
 
 timerInterval =
-setInterval(function(){
+setInterval(function() {
 
 time--;
 
-timer.innerText=time;
+timer.innerText = time;
 
-if(time<=0){
+if(time <= 0) {
 
 clearInterval(timerInterval);
 
@@ -1101,38 +1166,46 @@ stopRecording();
 
 }
 
-},1000);
+}, 1000);
 
 }
 
-catch(error){
+catch(error) {
+
+console.error(error);
 
 recordingStatus.innerText =
-"❌ Mikrofonu kullanmaya izin verilmedi.";
+"❌ Mikrofon için izin verilmedi.";
 
 }
 
 }
 
 
-/* KAYIT BITIR */
+/* =========================
+   KAYDI BİTİR
+========================= */
 
 function stopRecording() {
 
 if(
 mediaRecorder &&
-mediaRecorder.state!=="inactive"
+mediaRecorder.state !== "inactive"
 ) {
 
 mediaRecorder.stop();
 
 }
 
-if(microphoneStream){
+if(microphoneStream) {
 
 microphoneStream
 .getTracks()
-.forEach(track=>track.stop());
+.forEach(
+track => track.stop()
+);
+
+microphoneStream = null;
 
 }
 
@@ -1143,7 +1216,9 @@ document
 }
 
 
-/* SONRAKI */
+/* =========================
+   SONRAKİ SORU
+========================= */
 
 function nextQuestion() {
 
@@ -1151,13 +1226,13 @@ function nextQuestion() {
 /* 1.1 → 1.2 */
 
 if(
-currentSection==="1.1" &&
-currentQuestion>=2
+currentSection === "1.1" &&
+currentQuestion >= 2
 ) {
 
-currentSection="1.2";
+currentSection = "1.2";
 
-currentQuestion=0;
+currentQuestion = 0;
 
 showQuestion();
 
@@ -1166,9 +1241,9 @@ return;
 }
 
 
-/* 1.1 davom */
+/* 1.1 devam */
 
-if(currentSection==="1.1") {
+if(currentSection === "1.1") {
 
 currentQuestion++;
 
@@ -1182,13 +1257,13 @@ return;
 /* 1.2 → 2 */
 
 if(
-currentSection==="1.2" &&
-currentQuestion>=2
+currentSection === "1.2" &&
+currentQuestion >= 2
 ) {
 
-currentSection="2";
+currentSection = "2";
 
-currentQuestion=0;
+currentQuestion = 0;
 
 showQuestion();
 
@@ -1197,9 +1272,9 @@ return;
 }
 
 
-/* 1.2 davom */
+/* 1.2 devam */
 
-if(currentSection==="1.2") {
+if(currentSection === "1.2") {
 
 currentQuestion++;
 
@@ -1212,11 +1287,11 @@ return;
 
 /* 2 → 3 */
 
-if(currentSection==="2") {
+if(currentSection === "2") {
 
-currentSection="3";
+currentSection = "3";
 
-currentQuestion=0;
+currentQuestion = 0;
 
 showQuestion();
 
@@ -1225,142 +1300,212 @@ return;
 }
 
 
-/* 3 tugadi */
+/* 3 → BİTİŞ */
 
-if(currentSection==="3") {
+if(currentSection === "3") {
 
 clearInterval(timerInterval);
 
-document.getElementById("sectionTitle")
-.innerText="Mock Test Tamamlandı 🎉";
+document
+.getElementById("sectionTitle")
+.innerText =
+"Mock Test Tamamlandı 🎉";
 
-document.getElementById("progress")
-.innerText="Tüm bölümler tamamlandı";
+document
+.getElementById("progress")
+.innerText =
+"Tüm bölümler tamamlandı";
 
-document.getElementById("timer")
-.innerText="✓";
+document
+.getElementById("timer")
+.innerText =
+"✓";
 
-document.getElementById("question")
-.innerText=
+document
+.getElementById("question")
+.innerText =
 "Tebrikler! Konuşma mock testini tamamladınız.";
 
-document.getElementById("recordingStatus")
-.innerText="";
+document
+.getElementById("recordingStatus")
+.innerText = "";
 
-document.getElementById("section3Content")
-.style.display="none";
+document
+.getElementById("section3Content")
+.style.display =
+"none";
 
-document.getElementById("nextButton")
+document
+.getElementById("nextButton")
 .classList.add("hidden");
-    
-document.getElementById("sendButton")
+
+document
+.getElementById("sendButton")
 .classList.remove("hidden");
 
 }
 
 }
 
+
+/* =========================
+   TÜM SESLERİ GÖNDER
+========================= */
 async function sendAllRecordings() {
+
 const studentName =
-    document.getElementById("name").value.trim();
+document
+.getElementById("name")
+.value
+.trim();
 
-if (!studentName) {
-    alert("Lütfen adınızı ve soyadınızı yazınız.");
-    return;
+
+if(!studentName) {
+
+alert(
+"Lütfen adınızı ve soyadınızı yazınız."
+);
+
+return;
+
 }
 
-if (recordedAudios.length === 0) {
-    alert("Henüz kaydedilmiş cevap yok.");
-    return;
+
+if(recordedAudios.length === 0) {
+
+alert(
+"Henüz kaydedilmiş cevap yok."
+);
+
+return;
+
 }
+
 
 const sendButton =
-    document.getElementById("sendButton");
+document.getElementById("sendButton");
 
-sendButton.innerText = "Gönderiliyor...";
+sendButton.innerText =
+"Gönderiliyor...";
+
 sendButton.disabled = true;
 
+
 const webAppUrl =
-    "https://script.google.com/macros/s/AKfycbxVRu81N0OozBw1hoToB7zmwiDH6EgYKeTCqI80kK6V0fCU2t8PLwIG-fKeEHz4lWbI/exec";
+"https://script.google.com/macros/s/AKfycbxVRu81N0OozBw1hoToB7zmwiDH6EgYKeTCqI80kK6V0fCU2t8PLwIG-fKeEHz4lWbI/exec";
+
 
 try {
 
-    for (
-        let i = 0;
-        i < recordedAudios.length;
-        i++
-    ) {
 
-        const audioBlob =
-            recordedAudios[i];
+for(
+let i = 0;
+i < recordedAudios.length;
+i++
+) {
 
-        const arrayBuffer =
-            await audioBlob.arrayBuffer();
+const audioBlob =
+recordedAudios[i];
 
-        const bytes =
-            new Uint8Array(arrayBuffer);
 
-        let binary = "";
+const arrayBuffer =
+await audioBlob.arrayBuffer();
 
-        bytes.forEach(function(byte) {
-            binary += String.fromCharCode(byte);
-        });
 
-        const base64Audio =
-            btoa(binary);
+const bytes =
+new Uint8Array(arrayBuffer);
 
-        await fetch(webAppUrl, {
 
-            method: "POST",
+let binary = "";
 
-            headers: {
-                "Content-Type": "text/plain"
-            },
 
-            body: JSON.stringify({
+bytes.forEach(
+function(byte) {
 
-                studentName: studentName,
-
-                questionNumber: i + 1,
-
-                audio: base64Audio,
-
-                filename:
-                    studentName +
-                    " - Soru " +
-                    (i + 1) +
-                    ".webm"
-
-            })
-
-        });
-
-    }
-
-    sendButton.innerText =
-        "✅ Gönderildi";
-
-    alert(
-        "Cevaplarınız başarıyla gönderildi! 🎉"
-    );
-
-} catch (error) {
-
-    console.error(error);
-
-    sendButton.innerText =
-        "❌ Tekrar Gönder";
-
-    sendButton.disabled = false;
-
-    alert(
-        "Gönderme sırasında bir hata oluştu."
-    );
+binary +=
+String.fromCharCode(byte);
 
 }
+);
+
+
+const base64Audio =
+btoa(binary);
+
+
+await fetch(
+webAppUrl,
+{
+
+method: "POST",
+
+headers: {
+
+"Content-Type":
+"text/plain"
+
+},
+
+body:
+JSON.stringify({
+
+studentName:
+studentName,
+
+questionNumber:
+i + 1,
+
+audio:
+base64Audio,
+
+filename:
+studentName +
+" - Soru " +
+(i + 1) +
+".webm"
+
+})
+
 }
-    
+);
+
+}
+
+
+sendButton.innerText =
+"✅ Gönderildi";
+
+
+alert(
+"Cevaplarınız başarıyla gönderildi! 🎉"
+);
+
+
+}
+
+catch(error) {
+
+console.error(error);
+
+
+sendButton.innerText =
+"❌ Tekrar Gönder";
+
+
+sendButton.disabled =
+false;
+
+
+alert(
+"Gönderme sırasında bir hata oluştu."
+);
+
+}
+
+}
+
 </script>
 
 </body>
+
 </html>
