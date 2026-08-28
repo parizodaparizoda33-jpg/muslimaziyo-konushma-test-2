@@ -1258,6 +1258,98 @@ document.getElementById("nextButton")
 
 }
 
+    const studentName =
+    document.getElementById("studentName").value.trim();
+
+if (!studentName) {
+    alert("Lütfen adınızı ve soyadınızı yazınız.");
+    return;
+}
+
+if (recordedAudios.length === 0) {
+    alert("Henüz kaydedilmiş cevap yok.");
+    return;
+}
+
+const sendButton =
+    document.getElementById("sendButton");
+
+sendButton.innerText = "Gönderiliyor...";
+sendButton.disabled = true;
+
+const webAppUrl =
+    "https://script.google.com/macros/s/AKfycbxVRu81N0OozBw1hoToB7zmwiDH6EgYKeTCqI80kK6V0fCU2t8PLwIG-fKeEHz4lWbI/exec";
+
+try {
+
+    for (let i = 0; i < recordedAudios.length; i++) {
+
+        const audioBlob = recordedAudios[i];
+
+        const arrayBuffer =
+            await audioBlob.arrayBuffer();
+
+        const bytes =
+            new Uint8Array(arrayBuffer);
+
+        let binary = "";
+
+        bytes.forEach(byte => {
+            binary += String.fromCharCode(byte);
+        });
+
+        const base64Audio =
+            btoa(binary);
+
+        await fetch(webAppUrl, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "text/plain"
+            },
+
+            body: JSON.stringify({
+
+                studentName: studentName,
+
+                questionNumber: i + 1,
+
+                audio: base64Audio,
+
+                filename:
+                    studentName +
+                    " - Soru " +
+                    (i + 1) +
+                    ".webm"
+
+            })
+
+        });
+
+    }
+
+    sendButton.innerText =
+        "✅ Gönderildi";
+
+    alert(
+        "Cevaplarınız başarıyla gönderildi! 🎉"
+    );
+
+} catch (error) {
+
+    console.error(error);
+
+    sendButton.innerText =
+        "❌ Tekrar Gönder";
+
+    sendButton.disabled = false;
+
+    alert(
+        "Gönderme sırasında bir hata oluştu."
+    );
+}
+
 </script>
 
 </body>
