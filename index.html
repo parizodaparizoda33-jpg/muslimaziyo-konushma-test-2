@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Türkçe Konuşma Sınavı</title>
-
 <style>
 
 * {
@@ -136,7 +128,7 @@ button:disabled {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .status {
@@ -321,70 +313,47 @@ border-right: 1px solid #713238;
 }
 
 </style>
-
 </head>
-
 <body>
-
 <div class="container">
-
 <!-- HEADER -->
-
 <div class="header">
-
 <div class="logo">
 TR
 </div>
-
 <div>
-
 <h1>
 Türkçe Konuşma Sınavı
 </h1>
-
 <div class="brand">
 MUSLİMAZİYO
 </div>
-
 <div class="subtitle">
 Multi-Level · Konuşma Pratiği
 </div>
-
 </div>
-
 </div>
-
-
 <!-- BAŞLANGIÇ -->
-
 <div id="startPage">
-
 <div class="card">
-
 <h2>
 Öğrenci Bilgileri
 </h2>
-
 <p>
 Lütfen adınızı ve soyadınızı yazınız.
 </p>
-
 <input
-type="text"
-id="name"
-placeholder="Adınızı ve soyadınızı yazın"
->
-
+type=“text”
+id=“name”
+placeholder=“Adınızı ve soyadınızı yazın”
 <div class="mic">
 🎙
 </div>
-
 <button
-onclick="testMicrophone()"
-class="secondary"
->
+type=“button”
+onclick=“testMicrophone()”
+class=“secondary”
 🎤 Mikrofonu Test Et
-</button>
 
 <div
 id="micStatus"
@@ -392,168 +361,112 @@ class="status"
 >
 Mikrofon bekleniyor...
 </div>
-
 <button
-onclick="startExam()"
->
+type=“button”
+onclick=“startExam()”
 ▶️ Sınava Başla
-</button>
 
 </div>
-
-
 <div class="card">
-
 <h2>
 Gerçek sınav akışına yakın konuşma pratiği
 </h2>
-
 <p>
 1.1 → 1.2 → 2. Bölüm → 3. Bölüm
 </p>
-
 <p>
 Sorular sırayla açılır ve cevaplar sesli olarak kaydedilir.
 </p>
-
 </div>
-
-
 <div class="card">
-
 <h2>
 1.1 Bölümü
 </h2>
-
 <p>
 3 soru · 5 saniye okuma · 30 saniye konuşma
 </p>
-
 </div>
-
-
 <div class="card">
-
 <h2>
 1.2 Bölümü
 </h2>
-
 <p>
 2 görsel · 3 soru
 </p>
-
 <p>
 1. soru: 10 saniye hazırlık + 45 saniye konuşma
 </p>
-
 <p>
 2. ve 3. soru: 5 saniye hazırlık + 30 saniye konuşma
 </p>
-
 </div>
-
-
 <div class="card">
-
 <h2>
 2. Bölüm · B2
 </h2>
-
 <p>
 1 görsel · 3 soru · 1 dakika hazırlık · 2 dakika konuşma
 </p>
-
 </div>
-
-
 <div class="card">
-
 <h2>
 3. Bölüm · C1
 </h2>
-
 <p>
 Lehine / Aleyhine · 1 dakika hazırlık · 2 dakika konuşma
 </p>
-
 </div>
-
 </div>
-
-
 <!-- SINAV -->
-
 <div
 id="examPage"
 class="hidden"
 >
-
 <div class="card">
-
 <div class="examName">
 Türkçe Konuşma Sınavı
 </div>
-
 <h2 id="sectionTitle">
 1.1 Bölümü
 </h2>
-
 <div
 class="progress"
 id="progress"
 >
 Soru 1 / 3
 </div>
-
-
-<!-- 1.2 -->
-
+<!-- 1.2 RASMLAR -->
 <div
 id="imageBox"
 class="imageBox"
 style="display:none;"
 >
-
 <div class="bookCard">
-
 <div class="bookIcon">
 📱
 </div>
-
 <div class="bookTitle">
 E-Kitap
 </div>
-
 </div>
-
 <div class="vs">
 ↔️
 </div>
-
 <div class="bookCard">
-
 <div class="bookIcon">
 📖
 </div>
-
 <div class="bookTitle">
 Kâğıt Kitap
 </div>
-
 </div>
-
 </div>
-
-
 <!-- 2. BÖLÜM -->
-
 <div
 id="peaceImage"
 style="display:none;"
 >
-
 <div class="topicBox">
-
 <div style="
 font-size:80px;
 text-align:center;
@@ -561,178 +474,117 @@ margin-bottom:10px;
 ">
 🌿 🏞 🌳
 </div>
-
 </div>
-
 </div>
-
-
+<!-- 2. BÖLÜM SORULARI -->
 <div
 id="section2Questions"
 class="questionList"
 style="display:none;"
 >
-
 <div class="questionItem">
 Kendinizi nerede huzurlu ve sakin hissedersiniz?
 </div>
-
 <div class="questionItem">
 Huzur ve sakinlik insanı nasıl etkiler?
 </div>
-
 <div class="questionItem">
 Huzuru dış faktörler etkileyebilir mi?
 </div>
-
 </div>
-
-
 <!-- 3. BÖLÜM -->
-
 <div
 id="section3Content"
 style="display:none;"
 >
-
 <div class="topicBox">
-
 <div class="topicTitle">
-
 Ülkenizde sigara ve diğer tütün ürünlerinin yasaklanması, toplumsal ve bireysel açıdan ne gibi etkiler yaratır?
-
 </div>
-
 </div>
-
-
 <table class="argumentTable">
-
 <tr>
-
 <th>
 LEHİNE
 </th>
-
 <th>
 ALEYHİNE
 </th>
-
 </tr>
-
 <tr>
-
 <td>
-
 <ul>
-
 <li>
 Halk sağlığı korunur ve sigaraya bağlı hastalıklar azalır.
 </li>
-
 <li>
 Pasif içiciliğin önüne geçilir ve daha sağlıklı bir toplum oluşur.
 </li>
-
 <li>
 Sigara bağımlılığı azalarak sağlık harcamaları düşer.
 </li>
-
 </ul>
-
 </td>
-
-
 <td>
-
 <ul>
-
 <li>
 Sigara endüstrisinde çalışanlar işsiz kalabilir.
 </li>
-
 <li>
 Kaçak tütün ticareti artabilir ve devlet vergi kaybına uğrayabilir.
 </li>
-
 <li>
 Bireysel özgürlüklerin kısıtlanması tartışmalara yol açabilir.
 </li>
-
 </ul>
-
 </td>
-
 </tr>
-
 </table>
 </div>
-
-
 <!-- TIMER -->
-
 <div
 class="timer"
 id="timer"
 >
 5
 </div>
-
-
 <!-- QUESTION -->
-
 <div
 class="question"
 id="question"
 >
 Soru burada görünecek.
 </div>
-
-
 <!-- RECORDING STATUS -->
-
 <div
 id="recordingStatus"
 class="recording"
 >
 </div>
-
-
 <!-- AUDIO -->
-
 <audio
-id="audioPlayer"
+id=“audioPlayer”
 controls
-class="hidden"
-></audio>
-
-
+class=“hidden”
+</audio>
 <!-- NEXT -->
-
 <button
-id="nextButton"
-onclick="nextQuestion()"
-class="hidden"
->
+type=“button”
+id=“nextButton”
+onclick=“nextQuestion()”
+class=“hidden”
 Sonraki Bölüm →
-</button>
-
 
 <!-- SEND -->
-
 <button
-id="sendButton"
-onclick="sendAllRecordings()"
-class="hidden"
->
+type=“button”
+id=“sendButton”
+onclick=“sendAllRecordings()”
+class=“hidden”
 Gönder 📤
-</button>
 
 </div>
-
 </div>
-
-
 <script>
 
 /* =========================
@@ -791,7 +643,22 @@ async function testMicrophone() {
 const status =
 document.getElementById("micStatus");
 
+if (
+!navigator.mediaDevices ||
+!navigator.mediaDevices.getUserMedia
+) {
+
+status.innerText =
+"❌ Bu tarayıcı mikrofon erişimini desteklemiyor.";
+
+return;
+
+}
+
 try {
+
+status.innerText =
+"🎙 Mikrofon kontrol ediliyor...";
 
 microphoneStream =
 await navigator.mediaDevices.getUserMedia({
@@ -803,7 +670,9 @@ status.innerText =
 
 microphoneStream
 .getTracks()
-.forEach(track => track.stop());
+.forEach(function(track) {
+track.stop();
+});
 
 microphoneStream = null;
 
@@ -814,7 +683,7 @@ catch(error) {
 console.error(error);
 
 status.innerText =
-"❌ Mikrofon izni verilmedi.";
+"❌ Mikrofon izni verilmedi. Tarayıcı ayarlarından mikrofona izin verin.";
 
 }
 
@@ -962,8 +831,8 @@ progress.innerText =
 question.innerText =
 section12Questions[currentQuestion];
 
-imageBox.style.display = "flex";
-
+imageBox.style.display =
+"flex";
 if(currentQuestion === 0) {
 
 time = 10;
@@ -979,15 +848,14 @@ time = 5;
 }
 
 
-/* 2 */
+/* 2. BÖLÜM */
 
 else if(currentSection === "2") {
 
 document
 .getElementById("sectionTitle")
 .innerText =
-"2.
-Bölüm · B2";
+"2. Bölüm · B2";
 
 progress.innerText =
 "3 soru · 1 dakika hazırlık";
@@ -995,16 +863,18 @@ progress.innerText =
 question.innerText =
 "Soruları okuyun ve cevaplarınızı planlayın.";
 
-peaceImage.style.display = "block";
+peaceImage.style.display =
+"block";
 
-section2Questions.style.display = "block";
+section2Questions.style.display =
+"block";
 
 time = 60;
 
 }
 
 
-/* 3 */
+/* 3. BÖLÜM */
 
 else if(currentSection === "3") {
 
@@ -1019,7 +889,8 @@ progress.innerText =
 question.innerText =
 "Lehine ve aleyhine görüşleri değerlendirerek kendi fikrinizi geliştiriniz.";
 
-section3Content.style.display = "block";
+section3Content.style.display =
+"block";
 
 time = 60;
 
@@ -1062,6 +933,19 @@ const recordingStatus =
 document.getElementById("recordingStatus");
 
 
+if(
+!navigator.mediaDevices ||
+!navigator.mediaDevices.getUserMedia
+) {
+
+recordingStatus.innerText =
+"❌ Mikrofon desteklenmiyor.";
+
+return;
+
+}
+
+
 try {
 
 microphoneStream =
@@ -1069,8 +953,26 @@ await navigator.mediaDevices.getUserMedia({
 audio: true
 });
 
+
+let options = {};
+
+if(
+MediaRecorder.isTypeSupported(
+"audio/webm;codecs=opus"
+)
+) {
+
+options.mimeType =
+"audio/webm;codecs=opus";
+
+}
+
+
 mediaRecorder =
-new MediaRecorder(microphoneStream);
+new MediaRecorder(
+microphoneStream,
+options
+);
 
 audioChunks = [];
 
@@ -1093,7 +995,11 @@ function() {
 const audioBlob =
 new Blob(
 audioChunks,
-{ type: "audio/webm" }
+{
+type:
+mediaRecorder.mimeType ||
+"audio/webm"
+}
 );
 
 recordedAudios.push(audioBlob);
@@ -1105,9 +1011,11 @@ URL.createObjectURL(audioBlob);
 const audioPlayer =
 document.getElementById("audioPlayer");
 
-audioPlayer.src = audioURL;
+audioPlayer.src =
+audioURL;
 
 audioPlayer.classList.remove("hidden");
+
 
 recordingStatus.innerText =
 "✅ Cevap kaydedildi. Dinlemek için oynatın.";
@@ -1147,6 +1055,7 @@ time = 30;
 
 
 timer.innerText = time;
+
 
 clearInterval(timerInterval);
 
@@ -1197,17 +1106,21 @@ mediaRecorder.stop();
 
 }
 
+
 if(microphoneStream) {
 
 microphoneStream
 .getTracks()
-.forEach(
-track => track.stop()
-);
+.forEach(function(track) {
+
+track.stop();
+
+});
 
 microphoneStream = null;
 
 }
+
 
 document
 .getElementById("nextButton")
@@ -1241,7 +1154,7 @@ return;
 }
 
 
-/* 1.1 devam */
+/* 1.1 DEVAM */
 
 if(currentSection === "1.1") {
 
@@ -1272,7 +1185,7 @@ return;
 }
 
 
-/* 1.2 devam */
+/* 1.2 DEVAM */
 
 if(currentSection === "1.2") {
 
@@ -1328,7 +1241,8 @@ document
 
 document
 .getElementById("recordingStatus")
-.innerText = "";
+.innerText =
+"";
 
 document
 .getElementById("section3Content")
@@ -1351,6 +1265,7 @@ document
 /* =========================
    TÜM SESLERİ GÖNDER
 ========================= */
+
 async function sendAllRecordings() {
 
 const studentName =
@@ -1475,6 +1390,9 @@ studentName +
 sendButton.innerText =
 "✅ Gönderildi";
 
+sendButton.disabled =
+false;
+
 
 alert(
 "Cevaplarınız başarıyla gönderildi! 🎉"
@@ -1491,7 +1409,6 @@ console.error(error);
 sendButton.innerText =
 "❌ Tekrar Gönder";
 
-
 sendButton.disabled =
 false;
 
@@ -1505,7 +1422,5 @@ alert(
 }
 
 </script>
-
 </body>
-
 </html>
