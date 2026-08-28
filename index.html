@@ -759,6 +759,7 @@ let audioChunks = [];
 
 let microphoneStream = null;
 
+let recordedAudios = [];
 
 /* MİKROFON */
 
@@ -997,8 +998,6 @@ async function startRecording() {
 
 const timer =
 document.getElementById("timer");
-
- let recordedAudios = [];
     
 const recordingStatus =
 document.getElementById("recordingStatus");
@@ -1261,8 +1260,9 @@ document.getElementById("sendButton")
 
 }
 
-    const studentName =
-    document.getElementById("studentName").value.trim();
+async function sendAllRecordings() {
+const studentName =
+    document.getElementById("name").value.trim();
 
 if (!studentName) {
     alert("Lütfen adınızı ve soyadınızı yazınız.");
@@ -1285,9 +1285,14 @@ const webAppUrl =
 
 try {
 
-    for (let i = 0; i < recordedAudios.length; i++) {
+    for (
+        let i = 0;
+        i < recordedAudios.length;
+        i++
+    ) {
 
-        const audioBlob = recordedAudios[i];
+        const audioBlob =
+            recordedAudios[i];
 
         const arrayBuffer =
             await audioBlob.arrayBuffer();
@@ -1297,7 +1302,7 @@ try {
 
         let binary = "";
 
-        bytes.forEach(byte => {
+        bytes.forEach(function(byte) {
             binary += String.fromCharCode(byte);
         });
 
@@ -1351,8 +1356,10 @@ try {
     alert(
         "Gönderme sırasında bir hata oluştu."
     );
-}
 
+}
+}
+    
 </script>
 
 </body>
